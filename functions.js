@@ -25,67 +25,55 @@ leftButton.addEventListener("click",function(){nextImage("left");});
  * @param direction - This dictates which direction the slider will move, or if the indexValue will be added or subtracted
  * 
  */
-// function nextImage(direction)
-// {
+function nextImage(direction)
+{
    
-//     /**
-//      * If the direction is "right" add one to indexValue, going right, but if it's greater than 1 (maximum array size) don't do anything
-//      */
-//     if(direction == "right")
-//     {
-//         indexValue++;
-//         if(indexValue > 1)
-//         {
-//             indexValue--;
-//             console.log(imageArray[indexValue]);
-//             imageeSource.src = imageArray[indexValue];
-//         }
-//         else {
-//             console.log(imageArray[indexValue]);
-//             imageeSource.src = imageArray[indexValue];
-//         }
+    /**
+     * If the direction is "right" add one to indexValue, going right, but if it's greater than 1 (maximum array size) don't do anything
+     */
+    if(direction == "right")
+    {
+        indexValue++;
+        if(indexValue > 1)
+        {
+            indexValue--;
+            console.log(imageArray[indexValue]);
+            imageeSource.src = imageArray[indexValue];
+        }
+        else {
+            console.log(imageArray[indexValue]);
+            imageeSource.src = imageArray[indexValue];
+        }
         
-//     }
-//     /**
-//      * If the direction is "left" subtract one to indexValue, going left, but if it's less than 0 (minimum array size) don't do anything
-//      */
-//     else if(direction == "left")
-//     {
-//         indexValue--;
-//         if(indexValue < 0)
-//         {
-//             indexValue++;
-//             console.log(imageArray[indexValue]);
-//             imageeSource.src = imageArray[indexValue];
-//         }
-//         else {
-//             console.log(imageArray[indexValue]);
-//             imageeSource.src = imageArray[indexValue];
-//         }
+    }
+    /**
+     * If the direction is "left" subtract one to indexValue, going left, but if it's less than 0 (minimum array size) don't do anything
+     */
+    else if(direction == "left")
+    {
+        indexValue--;
+        if(indexValue < 0)
+        {
+            indexValue++;
+            console.log(imageArray[indexValue]);
+            imageeSource.src = imageArray[indexValue];
+        }
+        else {
+            console.log(imageArray[indexValue]);
+            imageeSource.src = imageArray[indexValue];
+        }
         
-//     }
+    }
     
     
-// }
+}
 
 /**
- * This feature, will have the slider switching contaniously
+ * This feature, will have the slider switching contaniously, if the array's index is at 2 (maximum) reverse it, so it will start going backwards
  */
 setInterval(movingSlider,3000);
 function movingSlider() {
-    /**
-     * First add one to the index value = 0
-     */
-    // if(indexValue == 0)
-    // {
-    //     indexValue++;
-    //     imageeSource.src = imageArray[indexValue];
-    // }
-    // else if(indexValue == 1)
-    // {
-    //     indexValue--;
-    //     imageeSource.src = imageArray[indexValue];
-    // }
+    
     if(indexValue == 2)
     {
         imageArray.reverse();
