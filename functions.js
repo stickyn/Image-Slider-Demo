@@ -13,7 +13,7 @@ const rightButton = document.getElementById("rightButton");
 const imageDisplayer = document.getElementById("imageContainer");
 const imageeSource = document.getElementById("containerImage");
 let indexValue = 0;
-let imageArray = ["image1.jpg","image2.jpg"];
+let imageArray = ["image1.jpg","image2.jpg","image3.jpg"];
 
 /**
  * W3Schools showcased how to do this: https://www.w3schools.com/js/js_HTMLdom_eventlistener.asp
@@ -25,46 +25,79 @@ leftButton.addEventListener("click",function(){nextImage("left");});
  * @param direction - This dictates which direction the slider will move, or if the indexValue will be added or subtracted
  * 
  */
-function nextImage(direction)
-{
+// function nextImage(direction)
+// {
    
-    /**
-     * If the direction is "right" add one to indexValue, going right, but if it's greater than 1 (maximum array size) don't do anything
-     */
-    if(direction == "right")
-    {
-        indexValue++;
-        if(indexValue > 1)
-        {
-            indexValue--;
-            console.log(imageArray[indexValue]);
-            imageeSource.src = imageArray[indexValue];
-        }
-        else {
-            console.log(imageArray[indexValue]);
-            imageeSource.src = imageArray[indexValue];
-        }
+//     /**
+//      * If the direction is "right" add one to indexValue, going right, but if it's greater than 1 (maximum array size) don't do anything
+//      */
+//     if(direction == "right")
+//     {
+//         indexValue++;
+//         if(indexValue > 1)
+//         {
+//             indexValue--;
+//             console.log(imageArray[indexValue]);
+//             imageeSource.src = imageArray[indexValue];
+//         }
+//         else {
+//             console.log(imageArray[indexValue]);
+//             imageeSource.src = imageArray[indexValue];
+//         }
         
-    }
+//     }
+//     /**
+//      * If the direction is "left" subtract one to indexValue, going left, but if it's less than 0 (minimum array size) don't do anything
+//      */
+//     else if(direction == "left")
+//     {
+//         indexValue--;
+//         if(indexValue < 0)
+//         {
+//             indexValue++;
+//             console.log(imageArray[indexValue]);
+//             imageeSource.src = imageArray[indexValue];
+//         }
+//         else {
+//             console.log(imageArray[indexValue]);
+//             imageeSource.src = imageArray[indexValue];
+//         }
+        
+//     }
+    
+    
+// }
+
+/**
+ * This feature, will have the slider switching contaniously
+ */
+setInterval(movingSlider,3000);
+function movingSlider() {
     /**
-     * If the direction is "left" subtract one to indexValue, going left, but if it's less than 0 (minimum array size) don't do anything
+     * First add one to the index value = 0
      */
-    else if(direction == "left")
+    // if(indexValue == 0)
+    // {
+    //     indexValue++;
+    //     imageeSource.src = imageArray[indexValue];
+    // }
+    // else if(indexValue == 1)
+    // {
+    //     indexValue--;
+    //     imageeSource.src = imageArray[indexValue];
+    // }
+    if(indexValue == 2)
     {
+        imageArray.reverse();
         indexValue--;
-        if(indexValue < 0)
-        {
-            indexValue++;
-            console.log(imageArray[indexValue]);
-            imageeSource.src = imageArray[indexValue];
-        }
-        else {
-            console.log(imageArray[indexValue]);
-            imageeSource.src = imageArray[indexValue];
-        }
-        
+        imageeSource.src = imageArray[indexValue];
     }
+    else {
+        indexValue++;
+        imageeSource.src = imageArray[indexValue];
+    }
+    
+    
     
     
 }
-
