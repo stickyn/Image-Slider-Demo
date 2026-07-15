@@ -13,7 +13,7 @@ const rightButton = document.getElementById("rightButton");
 const imageDisplayer = document.getElementById("imageContainer");
 const imageeSource = document.getElementById("containerImage");
 let indexValue = 0;
-let imageArray = ["image1.jpg","image2.jpg"];
+let imageArray = ["image1.jpg","image2.jpg","image3.jpg"];
 
 /**
  * W3Schools showcased how to do this: https://www.w3schools.com/js/js_HTMLdom_eventlistener.asp
@@ -68,3 +68,24 @@ function nextImage(direction)
     
 }
 
+/**
+ * This feature, will have the slider switching contaniously, if the array's index is at 2 (maximum) reverse it, so it will start going backwards
+ */
+setInterval(movingSlider,3000);
+function movingSlider() {
+    
+    if(indexValue == 2)
+    {
+        imageArray.reverse();
+        indexValue--;
+        imageeSource.src = imageArray[indexValue];
+    }
+    else {
+        indexValue++;
+        imageeSource.src = imageArray[indexValue];
+    }
+    
+    
+    
+    
+}
